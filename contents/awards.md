@@ -1,12 +1,5 @@
+- ACM-ICPC International Collegiate Programming Contest Shenyang Regional Contest — Gold Medal (2025)
 
-- Outstanding Graduate Award (CUMT), 2025.
+- ACM-ICPC International Collegiate Programming Contest Chengdu Regional Contest — Silver Medal (2025)
 
-- National Scholarship for Graduate Students (Ministry of Education, China), 2024.
-
-- First-Prize Graduate Academic Scholarship (CUMT), 2023 & 2024.
-
-- Outstanding Undergraduate Thesis Award (Jiangsu, China), 2022.
-
-- First-Prize Corporate Scholarship (CUMT), 2020.
-
-- First-Prize Undergraduate Academic Scholarship (CUMT), 2019.
+- ACM-CCPC China Collegiate Programming Contest Chongqing Regional Contest — Silver Medal (2025)
