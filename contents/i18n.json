@@ -28,6 +28,10 @@
       "copy": "复制",
       "copied": "已复制！",
       "copyCode": "复制代码"
+    },
+    "theme": {
+      "darkMode": "切换到深色模式",
+      "lightMode": "切换到浅色模式"
     }
   },
   "en": {
@@ -59,6 +63,10 @@
       "copy": "Copy",
       "copied": "Copied!",
       "copyCode": "Copy Code"
+    },
+    "theme": {
+      "darkMode": "Switch to dark mode",
+      "lightMode": "Switch to light mode"
     }
   }
 }

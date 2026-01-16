@@ -3,6 +3,32 @@
 
 :root{
     --h-title-color:#3948d2;
+    /* 浅色模式颜色 */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #f0f0f0;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border-color: #dee2e6;
+    --card-bg: #ffffff;
+    --code-bg: #f8f9fa;
+    --input-bg: #ffffff;
+    --input-border: #e9ecef;
+}
+
+/* 深色模式颜色 */
+[data-theme="dark"] {
+    --h-title-color: #5a6fd8;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e9ecef;
+    --text-secondary: #adb5bd;
+    --border-color: #495057;
+    --card-bg: #2d2d2d;
+    --code-bg: #1e1e1e;
+    --input-bg: #2d2d2d;
+    --input-border: #495057;
 }
 
 .header {
@@ -56,11 +82,11 @@ section .main-body{
 
 
 .bg-gradient-primary-to-secondary-light {
-    background: linear-gradient(45deg, #fcfcfc, #ffffff) !important;
+    background: linear-gradient(45deg, var(--bg-tertiary), var(--bg-primary)) !important;
 }
 
 .bg-gradient-primary-to-secondary-gray {
-    background: linear-gradient(45deg, #f0f0f0, #f1f1f1) !important;
+    background: linear-gradient(45deg, var(--bg-tertiary), var(--bg-secondary)) !important;
 }
 
 
@@ -114,20 +140,20 @@ section .main-body{
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 5px 10px;
     cursor: pointer;
     font-size: 14px;
     transition: all 0.2s;
     z-index: 10;
-    color: #495057;
+    color: var(--text-primary);
 }
 
 .copy-code-btn:hover {
-    background: #e9ecef;
-    border-color: #adb5bd;
+    background: var(--bg-secondary);
+    border-color: var(--text-secondary);
 }
 
 .copy-code-btn:active {
@@ -137,26 +163,31 @@ section .main-body{
 /* 搜索框样式 */
 #article-search {
     border-radius: 25px;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
     transition: border-color 0.3s;
 }
 
 #article-search:focus {
     border-color: var(--h-title-color);
     box-shadow: 0 0 0 0.2rem rgba(57, 72, 210, 0.25);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
 }
 
 .input-group-text {
     border-radius: 25px 0 0 25px;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--input-border);
     border-right: none;
-    background-color: #f8f9fa;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 /* 文章元信息样式 */
 #article-meta {
     padding: 1rem 0;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 2rem;
 }
 
@@ -175,6 +206,186 @@ section .main-body{
     display: flex;
     align-items: center;
     gap: 0.25rem;
+}
+
+/* 深色模式全局样式 */
+[data-theme="dark"] {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .header {
+    background-color: var(--bg-primary) !important;
+    border-bottom-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .navbar-brand,
+[data-theme="dark"] .nav-link {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .nav-link:hover {
+    color: var(--h-title-color) !important;
+}
+
+[data-theme="dark"] .article-item {
+    background-color: var(--card-bg) !important;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .article-item h3 {
+    color: var(--h-title-color);
+}
+
+[data-theme="dark"] .article-item:hover {
+    border-color: var(--h-title-color);
+}
+
+[data-theme="dark"] .article-meta {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .article-description {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .article-tags span {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .article-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+[data-theme="dark"] .article-item a:hover {
+    text-decoration: none;
+}
+
+[data-theme="dark"] section header h2 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .top-section:before {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] footer {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] footer a {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] footer a:hover {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .main-body {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .main-body h1,
+[data-theme="dark"] .main-body h2,
+[data-theme="dark"] .main-body h3,
+[data-theme="dark"] .main-body h4,
+[data-theme="dark"] .main-body h5,
+[data-theme="dark"] .main-body h6 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .main-body a {
+    color: var(--h-title-color);
+}
+
+[data-theme="dark"] .main-body code {
+    background-color: var(--code-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .main-body pre {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .main-body pre code {
+    background-color: transparent;
+    border: none;
+}
+
+[data-theme="dark"] .main-body blockquote {
+    border-left-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .text-muted {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .form-control {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--input-border);
+}
+
+[data-theme="dark"] .form-control:focus {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--h-title-color);
+}
+
+[data-theme="dark"] .dropdown-menu {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .dropdown-item {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .badge {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+/* 主题切换按钮 */
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--text-primary);
+    margin-left: 0.5rem;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--h-title-color);
+    transform: rotate(15deg);
+}
+
+.theme-toggle-btn i {
+    font-size: 1.2rem;
 }
 
 

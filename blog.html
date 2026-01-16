@@ -32,6 +32,7 @@
     <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core JS-->
+    <script type="text/javascript" src="static/js/theme.js"></script>
     <script type="text/javascript" src="static/js/i18n.js"></script>
     <script type="text/javascript" src="static/js/blog.js"></script>
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
@@ -40,10 +41,11 @@
         .article-item {
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            background-color: #fff;
+            background-color: var(--card-bg, #fff);
             border-radius: 0.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            border: 1px solid transparent;
         }
         .article-item:hover {
             transform: translateY(-2px);
@@ -54,14 +56,14 @@
             color: inherit;
         }
         .article-item h3 {
-            color: #2937f0;
+            color: var(--h-title-color, #2937f0);
             margin-bottom: 0.5rem;
         }
         .article-item h3:hover {
             color: #9f1ae2;
         }
         .article-meta {
-            color: #6c757d;
+            color: var(--text-secondary, #6c757d);
             font-size: 0.9rem;
             margin-bottom: 0.75rem;
         }
@@ -70,7 +72,8 @@
         }
         .article-tags span {
             display: inline-block;
-            background-color: #e9ecef;
+            background-color: var(--bg-tertiary, #e9ecef);
+            color: var(--text-primary, #212529);
             padding: 0.25rem 0.5rem;
             border-radius: 0.25rem;
             font-size: 0.85rem;
@@ -78,7 +81,7 @@
             margin-bottom: 0.25rem;
         }
         .article-description {
-            color: #495057;
+            color: var(--text-secondary, #495057);
             margin-top: 0.75rem;
         }
     </style>
@@ -119,6 +122,11 @@
                                 <li><a class="dropdown-item" href="#" onclick="i18n.setLanguage('en'); return false;">English</a></li>
                             </ul>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle-btn" onclick="themeManager.toggle()" aria-label="切换主题">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
