@@ -102,7 +102,6 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 });
-
 function displayArticles(articles) {
     const articlesList = document.getElementById('articles-list');
     
@@ -152,3 +151,4 @@ function displayArticles(articles) {
 
     articlesList.innerHTML = articlesHTML;
 }
+
