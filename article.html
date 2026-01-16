@@ -68,6 +68,7 @@
     <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <!-- Core JS-->
+    <script type="text/javascript" src="static/js/analytics.js"></script>
     <script type="text/javascript" src="static/js/theme.js"></script>
     <script type="text/javascript" src="static/js/i18n.js"></script>
     <script type="text/javascript" src="static/js/article.js"></script>
@@ -88,13 +89,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="index.html#page-top">HOME</a>
+                        <a class="nav-link me-lg-3" href="index.html#page-top" data-i18n="nav.home">HOME</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-lg-3" href="index.html#interests" data-i18n="nav.interests">INTERESTS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="index.html#awards">AWARDS</a>
+                        <a class="nav-link me-lg-3" href="index.html#awards" data-i18n="nav.awards">AWARDS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-lg-3" href="blog.html" data-i18n="nav.blogs">BLOGS</a>
@@ -127,7 +128,8 @@
                 <div class="col-lg-8 mx-auto">
                     <div id="article-meta" class="mb-3" style="display: none;">
                         <span class="badge bg-secondary me-2"><i class="bi bi-file-text"></i> <span id="word-count"></span> <span data-i18n="article.wordCount">字数</span></span>
-                        <span class="badge bg-secondary"><i class="bi bi-clock"></i> <span id="read-time"></span> <span data-i18n="article.minutes">分钟</span></span>
+                        <span class="badge bg-secondary me-2"><i class="bi bi-clock"></i> <span id="read-time"></span> <span data-i18n="article.minutes">分钟</span></span>
+                        <span class="badge bg-secondary"><i class="bi bi-eye"></i> <span id="article-views">0</span> <span data-i18n="article.views">次访问</span></span>
                     </div>
                     <div class="main-body" id="article-content">
                         <div class="text-center">
@@ -144,6 +146,9 @@
         <div class="container px-5">
             <div class="text-white-50 small">
                 <div id="copyright-text" class="mb-2"></div>
+                <div class="mb-2">
+                    <i class="bi bi-bar-chart"></i> <span data-i18n="stats.siteVisits">网站访问次数</span>: <span id="site-visits">0</span>
+                </div>
                 <a id="github-link" href="https://github.com/hellocccl">Github</a>
                 <span class="mx-1">&middot;</span>
                 <a id="license-link" href="https://github.com/hellocccl/hellocccl.github.io/blob/main/LICENSE">License</a>

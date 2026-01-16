@@ -21,7 +21,8 @@
       "loadError": "文章加载失败",
       "wordCount": "字数",
       "readTime": "预计阅读时间",
-      "minutes": "分钟"
+      "minutes": "分钟",
+      "views": "次访问"
     },
     "common": {
       "language": "语言",
@@ -32,6 +33,9 @@
     "theme": {
       "darkMode": "切换到深色模式",
       "lightMode": "切换到浅色模式"
+    },
+    "stats": {
+      "siteVisits": "网站访问次数"
     }
   },
   "en": {
@@ -56,7 +60,8 @@
       "loadError": "Failed to load article",
       "wordCount": "Words",
       "readTime": "Reading time",
-      "minutes": "minutes"
+      "minutes": "minutes",
+      "views": "views"
     },
     "common": {
       "language": "Language",
@@ -67,6 +72,9 @@
     "theme": {
       "darkMode": "Switch to dark mode",
       "lightMode": "Switch to light mode"
+    },
+    "stats": {
+      "siteVisits": "Site Visits"
     }
   }
 }

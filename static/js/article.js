@@ -39,6 +39,15 @@ window.addEventListener('DOMContentLoaded', event => {
     const urlParams = new URLSearchParams(window.location.search);
     const articleName = urlParams.get('article');
 
+    // 记录文章访问
+    if (articleName && typeof analytics !== 'undefined') {
+        const views = analytics.trackArticleView(articleName);
+        const viewsEl = document.getElementById('article-views');
+        if (viewsEl) {
+            viewsEl.textContent = analytics.formatNumber(views);
+        }
+    }
+
     if (!articleName) {
         const lang = typeof i18n !== 'undefined' ? i18n.getCurrentLang() : 'zh';
         const notFoundMsg = lang === 'zh' ? '未找到文章' : 'Article not found';
@@ -69,6 +78,15 @@ window.addEventListener('DOMContentLoaded', event => {
             
             // 计算字数和阅读时间
             calculateWordCount(markdown);
+            
+            // 更新文章访问次数显示
+            if (articleName && typeof analytics !== 'undefined') {
+                const views = analytics.getArticleViews(articleName);
+                const viewsEl = document.getElementById('article-views');
+                if (viewsEl) {
+                    viewsEl.textContent = analytics.formatNumber(views);
+                }
+            }
             
             // Extract title from markdown for page title
             const titleMatch = markdown.match(/^#\s+(.+)$/m);
@@ -102,6 +120,22 @@ window.addEventListener('DOMContentLoaded', event => {
             i18n.updatePage();
         }
     });
+    
+    // 显示网站访问次数
+    if (typeof analytics !== 'undefined') {
+        const siteVisitsEl = document.getElementById('site-visits');
+        if (siteVisitsEl) {
+            const visits = analytics.getSiteVisits();
+            siteVisitsEl.textContent = analytics.formatNumber(visits);
+        }
+        
+        // 监听访问量更新事件
+        window.addEventListener('siteVisitUpdated', (e) => {
+            if (siteVisitsEl) {
+                siteVisitsEl.textContent = analytics.formatNumber(e.detail.visits);
+            }
+        });
+    }
 });
 
 // 添加代码复制按钮

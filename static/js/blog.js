@@ -85,6 +85,22 @@ window.addEventListener('DOMContentLoaded', event => {
             displayArticles(allArticles);
         }
     });
+    
+    // 显示网站访问次数
+    if (typeof analytics !== 'undefined') {
+        const siteVisitsEl = document.getElementById('site-visits');
+        if (siteVisitsEl) {
+            const visits = analytics.getSiteVisits();
+            siteVisitsEl.textContent = analytics.formatNumber(visits);
+        }
+        
+        // 监听访问量更新事件
+        window.addEventListener('siteVisitUpdated', (e) => {
+            if (siteVisitsEl) {
+                siteVisitsEl.textContent = analytics.formatNumber(e.detail.visits);
+            }
+        });
+    }
 });
 
 function displayArticles(articles) {
