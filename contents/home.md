@@ -1,9 +1,9 @@
 
 
-[![hellocccl](../static/assets/favicon.ico)](https://github.com/hellocccl)
+[![我的仓库](../static/assets/img/repo.png)](https://github.com/hellocccl)
 
 
-#### Contact
+#### Contact Me
 
 Email: 852227286@qq.com
 
