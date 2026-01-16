@@ -1,0 +1,64 @@
+{
+  "zh": {
+    "nav": {
+      "home": "首页",
+      "interests": "兴趣爱好",
+      "awards": "奖项",
+      "blogs": "博客"
+    },
+    "blog": {
+      "title": "技术文章",
+      "subtitle": "分享我在学习和工作中的技术心得",
+      "searchPlaceholder": "搜索文章...",
+      "noResults": "未找到相关文章",
+      "loading": "正在加载文章列表...",
+      "noArticles": "暂无文章"
+    },
+    "article": {
+      "backToList": "返回文章列表",
+      "notFound": "未找到文章",
+      "loading": "正在加载文章...",
+      "loadError": "文章加载失败",
+      "wordCount": "字数",
+      "readTime": "预计阅读时间",
+      "minutes": "分钟"
+    },
+    "common": {
+      "language": "语言",
+      "copy": "复制",
+      "copied": "已复制！",
+      "copyCode": "复制代码"
+    }
+  },
+  "en": {
+    "nav": {
+      "home": "Home",
+      "interests": "Interests",
+      "awards": "Awards",
+      "blogs": "Blogs"
+    },
+    "blog": {
+      "title": "Technical Articles",
+      "subtitle": "Sharing my technical insights from learning and work",
+      "searchPlaceholder": "Search articles...",
+      "noResults": "No articles found",
+      "loading": "Loading articles...",
+      "noArticles": "No articles yet"
+    },
+    "article": {
+      "backToList": "Back to Articles",
+      "notFound": "Article not found",
+      "loading": "Loading article...",
+      "loadError": "Failed to load article",
+      "wordCount": "Words",
+      "readTime": "Reading time",
+      "minutes": "minutes"
+    },
+    "common": {
+      "language": "Language",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "copyCode": "Copy Code"
+    }
+  }
+}

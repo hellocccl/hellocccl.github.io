@@ -32,6 +32,7 @@
     <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core JS-->
+    <script type="text/javascript" src="static/js/i18n.js"></script>
     <script type="text/javascript" src="static/js/blog.js"></script>
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
 
@@ -100,13 +101,24 @@
                         <a class="nav-link me-lg-3" href="index.html#page-top">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="index.html#interests">兴趣爱好</a>
+                        <a class="nav-link me-lg-3" href="index.html#interests" data-i18n="nav.interests">INTERESTS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-lg-3" href="index.html#awards">AWARDS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3 active" href="blog.html">BLOGS</a>
+                        <a class="nav-link me-lg-3 active" href="blog.html" data-i18n="nav.blogs">BLOGS</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-link nav-link me-lg-3 dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-globe"></i> <span data-i18n="common.language">语言</span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="i18n.setLanguage('zh'); return false;">中文</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="i18n.setLanguage('en'); return false;">English</a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -117,13 +129,21 @@
     <section class="bg-gradient-primary-to-secondary-light mt5 md5" style="padding-top: 8rem;">
         <div class="container px-5">
             <header class="text-center mb-5">
-                <h2><i class="bi bi-journal-text"></i> 技术文章</h2>
-                <p class="text-muted">分享我在学习和工作中的技术心得</p>
+                <h2><i class="bi bi-journal-text"></i> <span data-i18n="blog.title">技术文章</span></h2>
+                <p class="text-muted" data-i18n="blog.subtitle">分享我在学习和工作中的技术心得</p>
             </header>
+            <div class="row mb-4">
+                <div class="col-lg-8 mx-auto">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" id="article-search" data-i18n-placeholder="blog.searchPlaceholder" placeholder="搜索文章...">
+                    </div>
+                </div>
+            </div>
             <div id="articles-list" class="row">
                 <div class="col-lg-10 mx-auto">
                     <div class="text-center">
-                        <p>正在加载文章列表...</p>
+                        <p data-i18n="blog.loading">正在加载文章列表...</p>
                     </div>
                 </div>
             </div>

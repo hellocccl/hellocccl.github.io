@@ -72,6 +72,7 @@
     <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <!-- Core JS-->
+    <script type="text/javascript" src="static/js/i18n.js"></script>
     <script type="text/javascript" src="static/js/scripts.js"></script>
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
 
@@ -91,16 +92,27 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#page-top">HOME</a>
+                        <a class="nav-link me-lg-3" href="#page-top" data-i18n="nav.home">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#interests">兴趣爱好</a>
+                        <a class="nav-link me-lg-3" href="#interests" data-i18n="nav.interests">INTERESTS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#awards">AWARDS</a>
+                        <a class="nav-link me-lg-3" href="#awards" data-i18n="nav.awards">AWARDS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="blog.html">BLOGS</a>
+                        <a class="nav-link me-lg-3" href="blog.html" data-i18n="nav.blogs">BLOGS</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-link nav-link me-lg-3 dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-globe"></i> <span data-i18n="common.language">语言</span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="i18n.setLanguage('zh'); return false;">中文</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="i18n.setLanguage('en'); return false;">English</a></li>
+                            </ul>
+                        </div>
                     </li>
 
                 </ul>
@@ -142,7 +154,7 @@
     <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="interests">
         <div class="container px-5">
             <header>
-                <h2 id="interests-subtitle"><i class="bi bi-heart-fill"></i>&nbsp;兴趣爱好</h2>
+                <h2 id="interests-subtitle"><i class="bi bi-heart-fill"></i>&nbsp;INTERESTS</h2>
             </header>
             <div class="main-body" id="interests-md"></div>
 
