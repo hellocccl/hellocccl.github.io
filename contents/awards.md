@@ -1,3 +1,4 @@
-- 2025 ACM-ICPC 沈阳区域赛 Gold Medal
-- 2025 ACM-ICPC 成都区域赛 Silver Medal
-- 2025 ACM-CCPC 重庆区域赛 Silver Medal
+- 2025 ACM-ICPC国际大学生程序设计竞赛亚洲区域赛沈阳站金牌
+- 2025 ACM-ICPC国际大学生程序设计竞赛亚洲区域赛成都站银牌
+- 2025 ACM-CCPC中国大学生程序设计竞赛全国邀请赛(东北)金牌
+- 2025 ACM-CCPC中国大学生程序设计竞赛重庆站银牌
