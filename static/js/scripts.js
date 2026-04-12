@@ -1,81 +1,105 @@
+window.addEventListener('DOMContentLoaded', async () => {
+    await site.init();
 
+    try {
+        const [config, articles, homeMarkdown, interestsMarkdown, awardsMarkdown] = await Promise.all([
+            site.loadConfig(),
+            site.loadArticles(),
+            site.fetchText(`${site.CONTENT_DIR}/home.md`),
+            site.fetchText(`${site.CONTENT_DIR}/interests.md`),
+            site.fetchText(`${site.CONTENT_DIR}/awards.md`)
+        ]);
 
-const content_dir = 'contents/'
-const config_file = 'config.yml'
-const section_names = ['home', 'interests', 'awards']
+        document.title = `${config.title || 'hellocccl'} | 个人技术博客`;
 
+        await Promise.all([
+            site.renderMarkdownInto(document.getElementById('home-md'), homeMarkdown),
+            site.renderMarkdownInto(document.getElementById('interests-md'), interestsMarkdown),
+            site.renderMarkdownInto(document.getElementById('awards-md'), awardsMarkdown)
+        ]);
 
-window.addEventListener('DOMContentLoaded', event => {
+        renderHeroStats(articles);
+        renderLatestPosts(articles);
+        renderTopicCloud(articles);
+        renderLatestSummary(articles);
+    } catch (error) {
+        console.error('首页内容加载失败:', error);
+    }
+});
 
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            offset: 74,
-        });
-    };
+function renderHeroStats(articles) {
+    const articleCount = document.getElementById('article-count');
+    const tagCount = document.getElementById('tag-count');
 
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
-
-
-    // Yaml
-    fetch(content_dir + config_file)
-        .then(response => response.text())
-        .then(text => {
-            const yml = jsyaml.load(text);
-            Object.keys(yml).forEach(key => {
-                try {
-                    document.getElementById(key).innerHTML = yml[key];
-                } catch {
-                    console.log("Unknown id and value: " + key + "," + yml[key].toString())
-                }
-
-            })
-        })
-        .catch(error => console.log(error));
-
-
-    // Marked
-    marked.use({ mangle: false, headerIds: false })
-    section_names.forEach((name, idx) => {
-        fetch(content_dir + name + '.md')
-            .then(response => response.text())
-            .then(markdown => {
-                const html = marked.parse(markdown);
-                document.getElementById(name + '-md').innerHTML = html;
-            }).then(() => {
-                // MathJax
-                MathJax.typeset();
-            })
-            .catch(error => console.log(error));
-    })
-
-    // 显示网站访问次数
-    if (typeof analytics !== 'undefined') {
-        const siteVisitsEl = document.getElementById('site-visits');
-        if (siteVisitsEl) {
-            const visits = analytics.getSiteVisits();
-            siteVisitsEl.textContent = analytics.formatNumber(visits);
-        }
-        
-        // 监听访问量更新事件
-        window.addEventListener('siteVisitUpdated', (e) => {
-            if (siteVisitsEl) {
-                siteVisitsEl.textContent = analytics.formatNumber(e.detail.visits);
-            }
-        });
+    if (articleCount) {
+        articleCount.textContent = articles.length;
     }
 
-}); 
+    if (tagCount) {
+        tagCount.textContent = site.getAllTags(articles).length;
+    }
+}
+
+function renderLatestPosts(articles) {
+    const target = document.getElementById('latest-posts-list');
+    if (!target) {
+        return;
+    }
+
+    if (!articles.length) {
+        target.innerHTML = `
+            <div class="empty-state">
+                <i class="bi bi-journal-x"></i>
+                <h3>还没有公开文章</h3>
+                <p>等第一篇内容发布后，这里会自动出现。</p>
+            </div>
+        `;
+        return;
+    }
+
+    const latestArticles = articles.slice(0, 3);
+    target.innerHTML = latestArticles.map(article => site.createArticleCard(article)).join('');
+}
+
+function renderTopicCloud(articles) {
+    const target = document.getElementById('topic-cloud');
+    if (!target) {
+        return;
+    }
+
+    const tags = site.getAllTags(articles).slice(0, 10);
+    if (!tags.length) {
+        target.innerHTML = '<p class="articles-summary">暂时还没有标签。</p>';
+        return;
+    }
+
+    target.innerHTML = tags.map(tag => `
+        <a class="topic-chip" href="${site.blogUrl(tag.name)}">
+            <span>${site.escapeHtml(tag.name)}</span>
+            <strong>${tag.count}</strong>
+        </a>
+    `).join('');
+}
+
+function renderLatestSummary(articles) {
+    const latest = articles[0];
+    const latestDate = document.getElementById('latest-post-date');
+    const latestLink = document.getElementById('latest-post-link');
+
+    if (!latest) {
+        if (latestLink) {
+            latestLink.textContent = '等待第一篇文章发布';
+            latestLink.href = 'blog.html';
+        }
+        return;
+    }
+
+    if (latestDate && latest) {
+        latestDate.textContent = site.formatDate(latest.date);
+    }
+
+    if (latestLink && latest) {
+        latestLink.textContent = latest.title;
+        latestLink.href = site.articleUrl(latest.id);
+    }
+}

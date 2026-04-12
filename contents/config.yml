@@ -1,5 +1,22 @@
-title: hellocccl's Homepage
+title: hellocccl
 page-top-title: hellocccl
-top-section-bg-text: Computer Science
-home-subtitle: hellocccl&ensp;
-copyright-text: '&copy; hellocccl 2023-2026. All Rights Reserved.'
+top-section-bg-text: 算法 · 计算机基础 · 技术笔记
+hero-description: 把学习、竞赛和开发过程中的思考整理成长期可复用的知识资产，让博客成为我的第二大脑。
+hero-role: 浙江农林大学 · 计算机科学与技术本科生
+hero-education: 浙江农林大学 / 计算机科学与技术
+hero-location: Zhejiang, China
+hero-focus: 算法竞赛、计算机网络、开发工具
+email: 852227286@qq.com
+github-url: https://github.com/hellocccl
+github-label: Github
+license-url: https://github.com/hellocccl/hellocccl.github.io/blob/main/LICENSE
+license-label: License
+home-subtitle: 关于我
+interests-subtitle: 关注方向
+awards-subtitle: 比赛与荣誉
+blog-title: 技术文章
+blog-description: 记录题解、工具经验和计算机基础学习笔记，让内容更容易回看、检索和复用。
+latest-posts-subtitle: 最新文章
+contact-title: 一起交流技术
+contact-description: 如果你也在折腾算法、课程学习或开发效率工具，欢迎直接联系我。
+copyright-text: © hellocccl 2023-2026. All Rights Reserved.

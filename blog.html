@@ -4,129 +4,47 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="技术文章列表" />
+    <meta name="description" content="hellocccl 的技术文章列表。" />
     <meta name="author" content="hellocccl" />
-    <title>技术文章 - hellocccl</title>
+    <title>hellocccl | 技术文章</title>
 
-    <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="static/css/styles.css" rel="stylesheet" />
+    <link href="static/css/main.css" rel="stylesheet" />
 
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-
-    <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
-        rel="stylesheet" />
-
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
-    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
-
-    <!-- Bootstrap core JS-->
-    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core JS-->
-    <script type="text/javascript" src="static/js/analytics.js"></script>
-    <script type="text/javascript" src="static/js/theme.js"></script>
-    <script type="text/javascript" src="static/js/i18n.js"></script>
-    <script type="text/javascript" src="static/js/blog.js"></script>
-    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
-
-    <style>
-        .article-item {
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            background-color: var(--card-bg, #fff);
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-            border: 1px solid transparent;
-        }
-        .article-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-        .article-item a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .article-item h3 {
-            color: var(--h-title-color, #2937f0);
-            margin-bottom: 0.5rem;
-        }
-        .article-item h3:hover {
-            color: #9f1ae2;
-        }
-        .article-meta {
-            color: var(--text-secondary, #6c757d);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-        .article-tags {
-            margin-top: 0.5rem;
-        }
-        .article-tags span {
-            display: inline-block;
-            background-color: var(--bg-tertiary, #e9ecef);
-            color: var(--text-primary, #212529);
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.25rem;
-        }
-        .article-description {
-            color: var(--text-secondary, #495057);
-            margin-top: 0.75rem;
-        }
-    </style>
-
+    <script defer src="static/js/bootstrap.bundle.min.js"></script>
+    <script defer src="static/js/analytics.js"></script>
+    <script defer src="static/js/theme.js"></script>
+    <script defer src="static/js/js-yaml.min.js"></script>
+    <script defer src="static/js/site.js"></script>
+    <script defer src="static/js/blog.js"></script>
 </head>
 
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-        <div class="container px-5">
-            <a id="page-top-title" class="navbar-brand fw-bold" href="index.html"></a>
+<body class="page-blog">
+    <div class="scroll-progress-track">
+        <div id="scrollProgress" class="scroll-progress"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg site-header fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html" data-config="page-top-title">hellocccl</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                MENU
-                <i class="bi-list"></i>
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="切换导航">
+                <i class="bi bi-list"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">关于我</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#interests">方向</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#awards">荣誉</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">文章</a></li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="index.html#page-top" data-i18n="nav.home">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="index.html#interests" data-i18n="nav.interests">INTERESTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="index.html#awards" data-i18n="nav.awards">AWARDS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3 active" href="blog.html" data-i18n="nav.blogs">BLOGS</a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button class="btn btn-link nav-link me-lg-3 dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-globe"></i> <span data-i18n="common.language">语言</span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                                <li><a class="dropdown-item" href="#" onclick="i18n.setLanguage('zh'); return false;">中文</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="i18n.setLanguage('en'); return false;">English</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <button class="theme-toggle-btn" onclick="themeManager.toggle()" aria-label="切换主题">
-                            <i class="bi bi-moon-fill"></i>
+                        <button class="theme-toggle-btn" type="button" data-theme-toggle aria-label="切换主题">
+                            <i class="bi bi-moon-stars-fill"></i>
                         </button>
                     </li>
                 </ul>
@@ -134,46 +52,83 @@
         </div>
     </nav>
 
-    <!-- Blog List Section -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" style="padding-top: 8rem;">
-        <div class="container px-5">
-            <header class="text-center mb-5">
-                <h2><i class="bi bi-journal-text"></i> <span data-i18n="blog.title">技术文章</span></h2>
-                <p class="text-muted" data-i18n="blog.subtitle">分享我在学习和工作中的技术心得</p>
-            </header>
-            <div class="row mb-4">
-                <div class="col-lg-8 mx-auto">
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="bi bi-search"></i></span>
-                        <input type="text" class="form-control" id="article-search" data-i18n-placeholder="blog.searchPlaceholder" placeholder="搜索文章...">
+    <main class="page-main">
+        <section class="page-hero">
+            <div class="container px-4 px-lg-5">
+                <div class="page-hero-grid">
+                    <div class="page-hero-copy">
+                        <span class="section-kicker">BLOG</span>
+                        <h1 data-config="blog-title">技术文章</h1>
+                        <p data-config="blog-description"></p>
                     </div>
-                </div>
-            </div>
-            <div id="articles-list" class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="text-center">
-                        <p data-i18n="blog.loading">正在加载文章列表...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer-->
-    <footer class="bg-bottom text-center py-5">
-        <div class="container px-5">
-            <div class="text-white-50 small">
-                <div id="copyright-text" class="mb-2"></div>
-                <div class="mb-2">
-                    <i class="bi bi-bar-chart"></i> <span data-i18n="stats.siteVisits">网站访问次数</span>: <span id="site-visits">0</span>
+                    <div class="mini-stat-grid">
+                        <article class="mini-stat-card">
+                            <span id="blog-total-count">0</span>
+                            <small>总文章数</small>
+                        </article>
+                        <article class="mini-stat-card">
+                            <span id="blog-total-tags">0</span>
+                            <small>标签数</small>
+                        </article>
+                        <article class="mini-stat-card">
+                            <span id="latest-post-date">-</span>
+                            <small>最近更新</small>
+                        </article>
+                    </div>
                 </div>
-                <a id="github-link" href="https://github.com/hellocccl">Github</a>
-                <span class="mx-1">&middot;</span>
-                <a id="license-link" href="https://github.com/hellocccl/hellocccl.github.io/blob/main/LICENSE">License</a>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="container px-4 px-lg-5">
+                <div class="filter-panel">
+                    <div class="search-shell">
+                        <i class="bi bi-search"></i>
+                        <input type="text" id="article-search" class="search-input" placeholder="搜索标题、简介或标签..." />
+                    </div>
+                    <button id="clear-filters" class="btn btn-outline-primary btn-pill" type="button">清空筛选</button>
+                </div>
+
+                <div class="tag-filter-wrap">
+                    <div class="filter-chip-group" id="tag-filters"></div>
+                    <p class="articles-summary" id="articles-summary">共 0 篇文章</p>
+                </div>
+
+                <div class="article-grid" id="articles-list">
+                    <div class="empty-state">
+                        <i class="bi bi-hourglass-split"></i>
+                        <h3>正在加载文章列表</h3>
+                        <p>马上就好。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container px-4 px-lg-5">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-title" data-config="page-top-title">hellocccl</div>
+                    <p class="footer-text" data-config="copyright-text"></p>
+                </div>
+                <div class="footer-meta">
+                    <span><i class="bi bi-bar-chart-line"></i> 累计访问 <strong data-site-visits>0</strong></span>
+                    <a data-config="github-url" data-config-attr="href" href="https://github.com/hellocccl">
+                        <span data-config="github-label">Github</span>
+                    </a>
+                    <a data-config="license-url" data-config-attr="href" href="https://github.com/hellocccl/hellocccl.github.io/blob/main/LICENSE">
+                        <span data-config="license-label">License</span>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top" type="button" aria-label="回到顶部">
+        <i class="bi bi-arrow-up"></i>
+    </button>
 </body>
 
 </html>

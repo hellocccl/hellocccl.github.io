@@ -1,5 +1,3 @@
-- ACM-ICPC International Collegiate Programming Contest Shenyang Regional Contest — Gold Medal (2025)
-
-- ACM-ICPC International Collegiate Programming Contest Chengdu Regional Contest — Silver Medal (2025)
-
-- ACM-CCPC China Collegiate Programming Contest Chongqing Regional Contest — Silver Medal (2025)
+- 2025 ACM-ICPC 沈阳区域赛 Gold Medal
+- 2025 ACM-ICPC 成都区域赛 Silver Medal
+- 2025 ACM-CCPC 重庆区域赛 Silver Medal

@@ -1,154 +1,151 @@
-const content_dir = 'contents/'
-const config_file = 'config.yml'
-const articles_file = content_dir + 'articles.json'
+let blogArticles = [];
+const blogState = {
+    query: '',
+    tag: '全部'
+};
 
-let allArticles = [];
+window.addEventListener('DOMContentLoaded', async () => {
+    await site.init();
 
-window.addEventListener('DOMContentLoaded', event => {
+    try {
+        const [config, articles] = await Promise.all([
+            site.loadConfig(),
+            site.loadArticles()
+        ]);
 
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
+        blogArticles = articles;
+        document.title = `${config.title || 'hellocccl'} | 技术文章`;
 
-    // Load config
-    fetch(content_dir + config_file)
-        .then(response => response.text())
-        .then(text => {
-            const yml = jsyaml.load(text);
-            Object.keys(yml).forEach(key => {
-                try {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        element.innerHTML = yml[key];
-                    }
-                } catch {
-                    console.log("Unknown id and value: " + key + "," + yml[key].toString())
-                }
-            })
-        })
-        .catch(error => console.log(error));
-
-    // Load articles list
-    fetch(articles_file)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('无法加载文章列表');
-            }
-            return response.json();
-        })
-        .then(articles => {
-            allArticles = articles;
-            displayArticles(articles);
-            
-            // 添加搜索功能
-            const searchInput = document.getElementById('article-search');
-            if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
-                    const query = e.target.value.toLowerCase().trim();
-                    if (query === '') {
-                        displayArticles(allArticles);
-                    } else {
-                        const filtered = allArticles.filter(article => {
-                            const titleMatch = article.title.toLowerCase().includes(query);
-                            const descMatch = article.description.toLowerCase().includes(query);
-                            const tagsMatch = article.tags.some(tag => tag.toLowerCase().includes(query));
-                            return titleMatch || descMatch || tagsMatch;
-                        });
-                        displayArticles(filtered);
-                    }
-                });
-            }
-        })
-        .catch(error => {
-            console.error('加载文章列表失败:', error);
-            document.getElementById('articles-list').innerHTML = `
-                <div class="col-lg-10 mx-auto">
-                    <div class="text-center">
-                        <p>加载文章列表失败，请检查 articles.json 文件是否存在。</p>
-                    </div>
+        initFilters(articles);
+        renderBlogStats(articles);
+        renderTagFilters(articles);
+        renderArticles();
+    } catch (error) {
+        console.error('加载文章列表失败:', error);
+        const target = document.getElementById('articles-list');
+        if (target) {
+            target.innerHTML = `
+                <div class="empty-state">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <h3>文章列表加载失败</h3>
+                    <p>请检查 <code>contents/articles.json</code> 是否可用。</p>
                 </div>
             `;
-        });
-
-    // 监听语言变化事件
-    window.addEventListener('languageChanged', () => {
-        if (allArticles.length > 0) {
-            displayArticles(allArticles);
         }
-    });
-    
-    // 显示网站访问次数
-    if (typeof analytics !== 'undefined') {
-        const siteVisitsEl = document.getElementById('site-visits');
-        if (siteVisitsEl) {
-            const visits = analytics.getSiteVisits();
-            siteVisitsEl.textContent = analytics.formatNumber(visits);
-        }
-        
-        // 监听访问量更新事件
-        window.addEventListener('siteVisitUpdated', (e) => {
-            if (siteVisitsEl) {
-                siteVisitsEl.textContent = analytics.formatNumber(e.detail.visits);
-            }
-        });
     }
 });
-function displayArticles(articles) {
-    const articlesList = document.getElementById('articles-list');
-    
-    if (articles.length === 0) {
-        articlesList.innerHTML = `
-            <div class="col-lg-10 mx-auto">
-                <div class="text-center">
-                    <p data-i18n="blog.noResults">未找到相关文章</p>
-                </div>
-            </div>
-        `;
-        // 更新i18n
-        if (typeof i18n !== 'undefined') {
-            i18n.updatePage();
-        }
+
+function initFilters(articles) {
+    const params = new URLSearchParams(window.location.search);
+    blogState.tag = params.get('tag') || '全部';
+
+    const searchInput = document.getElementById('article-search');
+    const clearButton = document.getElementById('clear-filters');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', event => {
+            blogState.query = event.target.value.trim().toLowerCase();
+            renderArticles();
+        });
+    }
+
+    if (clearButton) {
+        clearButton.addEventListener('click', () => {
+            blogState.query = '';
+            blogState.tag = '全部';
+            if (searchInput) {
+                searchInput.value = '';
+            }
+            renderTagFilters(articles);
+            renderArticles();
+            history.replaceState(null, '', 'blog.html');
+        });
+    }
+}
+
+function renderBlogStats(articles) {
+    const totalCount = document.getElementById('blog-total-count');
+    const totalTags = document.getElementById('blog-total-tags');
+    const latestDate = document.getElementById('latest-post-date');
+
+    if (totalCount) {
+        totalCount.textContent = articles.length;
+    }
+
+    if (totalTags) {
+        totalTags.textContent = site.getAllTags(articles).length;
+    }
+
+    if (latestDate && articles[0]) {
+        latestDate.textContent = site.formatDate(articles[0].date);
+    }
+}
+
+function renderTagFilters(articles) {
+    const target = document.getElementById('tag-filters');
+    if (!target) {
         return;
     }
 
-    // Sort articles by date (newest first)
-    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const tags = [{ name: '全部', count: articles.length }, ...site.getAllTags(articles)];
 
-    // Generate HTML for each article
-    const articlesHTML = articles.map(article => {
-        const tagsHTML = article.tags.map(tag => 
-            `<span>${tag}</span>`
-        ).join('');
+    target.innerHTML = tags.map(tag => `
+        <button class="filter-chip${blogState.tag === tag.name ? ' active' : ''}" type="button" data-tag="${site.escapeHtml(tag.name)}">
+            <span>${site.escapeHtml(tag.name)}</span>
+            <strong>${tag.count}</strong>
+        </button>
+    `).join('');
 
-        return `
-            <div class="col-lg-10 mx-auto">
-                <div class="article-item">
-                    <a href="article.html?article=${article.id}">
-                        <h3>${article.title}</h3>
-                        <div class="article-meta">
-                            <i class="bi bi-calendar3"></i> ${article.date}
-                        </div>
-                        <div class="article-description">
-                            ${article.description}
-                        </div>
-                        <div class="article-tags">
-                            ${tagsHTML}
-                        </div>
-                    </a>
-                </div>
-            </div>
-        `;
-    }).join('');
+    target.querySelectorAll('[data-tag]').forEach(button => {
+        button.addEventListener('click', () => {
+            blogState.tag = button.dataset.tag;
+            renderTagFilters(articles);
+            renderArticles();
 
-    articlesList.innerHTML = articlesHTML;
+            const nextUrl = blogState.tag === '全部' ? 'blog.html' : site.blogUrl(blogState.tag);
+            history.replaceState(null, '', nextUrl);
+        });
+    });
 }
 
+function getFilteredArticles() {
+    return blogArticles.filter(article => {
+        const matchesTag = blogState.tag === '全部' || (article.tags || []).includes(blogState.tag);
+        const haystack = [
+            article.title,
+            article.description,
+            ...(article.tags || [])
+        ].join(' ').toLowerCase();
+        const matchesQuery = !blogState.query || haystack.includes(blogState.query);
+        return matchesTag && matchesQuery;
+    });
+}
+
+function renderArticles() {
+    const target = document.getElementById('articles-list');
+    const summary = document.getElementById('articles-summary');
+    const filteredArticles = getFilteredArticles();
+
+    if (summary) {
+        summary.textContent = filteredArticles.length === blogArticles.length
+            ? `共 ${blogArticles.length} 篇文章`
+            : `筛选后还有 ${filteredArticles.length} 篇文章`;
+    }
+
+    if (!target) {
+        return;
+    }
+
+    if (filteredArticles.length === 0) {
+        target.innerHTML = `
+            <div class="empty-state">
+                <i class="bi bi-search"></i>
+                <h3>没有找到匹配的文章</h3>
+                <p>试试换一个关键词，或者清空筛选条件。</p>
+            </div>
+        `;
+        return;
+    }
+
+    target.innerHTML = filteredArticles.map(article => site.createArticleCard(article)).join('');
+}

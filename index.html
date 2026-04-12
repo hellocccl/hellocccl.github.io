@@ -1,202 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Academic Webpage" />
+    <meta name="description" content="hellocccl 的个人技术博客，记录算法、计算机基础与开发工具学习。" />
     <meta name="author" content="hellocccl" />
-    <title id="title"></title>
+    <title>hellocccl | 个人技术博客</title>
 
-    <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="static/css/styles.css" rel="stylesheet" />
+    <link href="static/css/main.css" rel="stylesheet" />
 
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-
-    <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
-        rel="stylesheet" />
-
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
-    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
-
-    <!-- Bootstrap core JS-->
-    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
-
-    <!-- For Compatability -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    
-    <!-- Markdown -->
-    <script type="text/javascript" src="static/js/marked.min.js"></script>
-
-    <!-- Mathematics -->
-    <script>
-        // See https://docs.mathjax.org/en/latest/index.html for more details.
-        MathJax = {
-            tex: {
-                packages: {},              // extensions to use
-                inlineMath: [              // start/end delimiter pairs for in-line math
-                    ['$', '$'],
-                    ['\\(', '\\)']
-                ],
-                displayMath: [             // start/end delimiter pairs for display math
-                    ['$$', '$$'],
-                    ['\\[', '\\]']
-                ],
-                processEscapes: false,      // use \$ to produce a literal dollar sign
-                processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
-                processRefs: true,         // process \ref{...} outside of math mode
-                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
-                tags: 'all',              // or 'ams' or 'all'
-                tagSide: 'right',          // side for \tag macros
-                tagIndent: '0.8em',        // amount to indent tags
-                useLabelIds: true,         // use label name rather than tag for ids
-                maxMacros: 10000,          // maximum number of macro substitutions per expression
-                maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
-                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
-                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
-                formatError:               // function called when TeX syntax errors occur
-                    (jax, err) => jax.formatError(err)
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <!-- Core JS-->
-    <script type="text/javascript" src="static/js/analytics.js"></script>
-    <script type="text/javascript" src="static/js/theme.js"></script>
-    <script type="text/javascript" src="static/js/i18n.js"></script>
-    <script type="text/javascript" src="static/js/scripts.js"></script>
-    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
-
+    <script defer src="static/js/bootstrap.bundle.min.js"></script>
+    <script defer src="static/js/analytics.js"></script>
+    <script defer src="static/js/theme.js"></script>
+    <script defer src="static/js/js-yaml.min.js"></script>
+    <script defer src="static/js/site.js"></script>
+    <script defer src="static/js/marked.min.js"></script>
+    <script defer src="static/js/scripts.js"></script>
 </head>
 
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-        <div class="container px-5">
-            <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top"></a>
-            <!-- <a href="#page-top"><img src="static/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a> -->
+<body class="page-home">
+    <div class="scroll-progress-track">
+        <div id="scrollProgress" class="scroll-progress"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg site-header fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top" data-config="page-top-title">hellocccl</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                MENU
-                <i class="bi-list"></i>
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="切换导航">
+                <i class="bi bi-list"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link active" href="#home">关于我</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#interests">方向</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#awards">荣誉</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">文章</a></li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#page-top" data-i18n="nav.home">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#interests" data-i18n="nav.interests">INTERESTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#awards" data-i18n="nav.awards">AWARDS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="blog.html" data-i18n="nav.blogs">BLOGS</a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button class="btn btn-link nav-link me-lg-3 dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-globe"></i> <span data-i18n="common.language">语言</span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                                <li><a class="dropdown-item" href="#" onclick="i18n.setLanguage('zh'); return false;">中文</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="i18n.setLanguage('en'); return false;">English</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <button class="theme-toggle-btn" onclick="themeManager.toggle()" aria-label="切换主题">
-                            <i class="bi bi-moon-fill"></i>
+                        <button class="theme-toggle-btn" type="button" data-theme-toggle aria-label="切换主题">
+                            <i class="bi bi-moon-stars-fill"></i>
                         </button>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Top Section -->
-    <section class="top-section" style="background-image: url('static/assets/img/background.jpeg');">
-        <div class="top-section-content">
-            <div class="container px-5">
-                <h2 id="top-section-bg-text" class="text-white display-3 lh-1 font-alt"></h2>
-            </div>
-        </div>
-    </section>
-    <!-- Top Section -->
+    <main id="page-top">
+        <section class="hero-section">
+            <div class="hero-orb hero-orb-left"></div>
+            <div class="hero-orb hero-orb-right"></div>
+            <div class="container px-4 px-lg-5">
+                <div class="hero-grid">
+                    <div class="hero-copy reveal">
+                        <span class="section-kicker">PERSONAL TECH BLOG</span>
+                        <h1 class="hero-title" data-config="page-top-title">hellocccl</h1>
+                        <p class="hero-subtitle" data-config="top-section-bg-text">算法 · 计算机基础 · 技术笔记</p>
+                        <p class="hero-description" data-config="hero-description"></p>
 
-    <!-- Photo -->
-    <div class="container px-5">
-        <div id="avatar">
-            <img class="shadow" src="static/assets/img/photo.png">
-        </div>
-    </div>
-    <!-- Photo -->
-    
-    <!-- Home -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
-        <div class="container px-5">
-            <header>
-                <h2 id="home-subtitle"> </h2>
-                <!-- <span class="bi bi-list"></span> -->
-            </header>
-            <div class="main-body" id="home-md"></div>
-        </div>
-    </section>
-    <!-- Home -->
+                        <div class="hero-actions">
+                            <a class="btn btn-primary btn-pill" href="#latest-posts">查看最新文章</a>
+                            <a class="btn btn-outline-primary btn-pill" data-config="email" data-config-attr="href" data-config-prefix="mailto:" href="mailto:852227286@qq.com">发送邮件</a>
+                        </div>
 
-    <!-- Interests -->
-    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="interests">
-        <div class="container px-5">
-            <header>
-                <h2 id="interests-subtitle"><i class="bi bi-heart-fill"></i>&nbsp;INTERESTS</h2>
-            </header>
-            <div class="main-body" id="interests-md"></div>
+                        <div class="stat-grid">
+                            <article class="stat-card">
+                                <span id="article-count">0</span>
+                                <small>文章沉淀</small>
+                            </article>
+                            <article class="stat-card">
+                                <span data-site-visits>0</span>
+                                <small>累计访问</small>
+                            </article>
+                            <article class="stat-card">
+                                <span id="tag-count">0</span>
+                                <small>常写主题</small>
+                            </article>
+                        </div>
+                    </div>
 
-        </div>
-    </section>
-    <!-- Interests  -->
+                    <aside class="hero-panel reveal">
+                        <div class="profile-card">
+                            <div class="profile-photo-shell">
+                                <img class="profile-photo" src="static/assets/img/photo.png" alt="hellocccl" />
+                            </div>
+                            <div class="profile-copy">
+                                <span class="profile-chip">ABOUT ME</span>
+                                <h2 data-config="page-top-title">hellocccl</h2>
+                                <p class="profile-role" data-config="hero-role"></p>
+                                <ul class="profile-list">
+                                    <li><i class="bi bi-mortarboard-fill"></i><span data-config="hero-education"></span></li>
+                                    <li><i class="bi bi-geo-alt-fill"></i><span data-config="hero-location"></span></li>
+                                    <li><i class="bi bi-stars"></i><span data-config="hero-focus"></span></li>
+                                </ul>
+                                <div class="profile-links">
+                                    <a class="inline-link" data-config="github-url" data-config-attr="href" href="https://github.com/hellocccl">Github</a>
+                                    <a class="inline-link" data-config="email" data-config-attr="href" data-config-prefix="mailto:" href="mailto:852227286@qq.com">Email</a>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Awards -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="awards">
-        <div class="container px-5">
-            <header>
-                <h2 id="awards-subtitle"><i class="bi bi-award-fill"></i>AWARDS </h2>
-            </header>
-            <div class="main-body" id="awards-md"></div>
-
-        </div>
-    </section>
-    <!-- Awards -->
-
-
-    <!-- Footer-->
-    <footer class="bg-bottom text-center py-5">
-        <div class="container px-5">
-            <div class="text-white-50 small">
-                <div id="copyright-text" class="mb-2"></div>
-                <div class="mb-2">
-                    <i class="bi bi-bar-chart"></i> <span data-i18n="stats.siteVisits">网站访问次数</span>: <span id="site-visits">0</span>
+                        <div class="summary-card">
+                            <span class="section-kicker muted">LATEST UPDATE</span>
+                            <h3><a id="latest-post-link" href="blog.html">加载中...</a></h3>
+                            <p>最近一次更新</p>
+                            <strong id="latest-post-date">-</strong>
+                        </div>
+                    </aside>
                 </div>
-                <a id="github-link" href="https://github.com/hellocccl">Github</a>
-                <span class="mx-1">&middot;</span>
-                <a id="license-link" href="https://github.com/hellocccl/hellocccl.github.io/blob/main/LICENSE">License</a>
+            </div>
+        </section>
+
+        <section class="section-block" id="home">
+            <div class="container px-4 px-lg-5">
+                <div class="section-heading">
+                    <span class="section-kicker">INTRO</span>
+                    <h2 data-config="home-subtitle">关于我</h2>
+                    <p>把学习过程整理成清晰、长期可复用的文字，是这个博客最重要的目标。</p>
+                </div>
+                <div class="content-card prose-card" id="home-md"></div>
+            </div>
+        </section>
+
+        <section class="section-block section-block-muted" id="interests">
+            <div class="container px-4 px-lg-5">
+                <div class="content-card">
+                    <div class="section-heading compact">
+                        <span class="section-kicker">FOCUS</span>
+                        <h2 data-config="interests-subtitle">关注方向</h2>
+                    </div>
+                    <div class="prose-card embedded-prose" id="interests-md"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block" id="awards">
+            <div class="container px-4 px-lg-5">
+                <div class="content-card">
+                    <div class="section-heading compact">
+                        <span class="section-kicker">MILESTONES</span>
+                        <h2 data-config="awards-subtitle">比赛与荣誉</h2>
+                    </div>
+                    <div class="prose-card embedded-prose" id="awards-md"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block" id="latest-posts">
+            <div class="container px-4 px-lg-5">
+                <div class="section-heading">
+                    <span class="section-kicker">WRITING</span>
+                    <h2 data-config="latest-posts-subtitle">最新文章</h2>
+                    <p>最近写下来的题解、复习笔记和工具经验，都可以从这里快速进入。</p>
+                </div>
+
+                <div class="content-showcase">
+                    <div class="article-grid" id="latest-posts-list"></div>
+                    <aside class="sidebar-card">
+                        <div class="section-heading compact">
+                            <span class="section-kicker">TOPICS</span>
+                            <h3>常写主题</h3>
+                        </div>
+                        <div class="topic-cloud" id="topic-cloud"></div>
+                        <a class="btn btn-outline-primary btn-pill w-100" href="blog.html">查看全部文章</a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block section-block-accent" id="contact">
+            <div class="container px-4 px-lg-5">
+                <div class="contact-card">
+                    <div>
+                        <span class="section-kicker">CONTACT</span>
+                        <h2 data-config="contact-title">一起交流技术</h2>
+                        <p data-config="contact-description"></p>
+                    </div>
+                    <div class="contact-actions">
+                        <a class="btn btn-primary btn-pill" data-config="email" data-config-attr="href" data-config-prefix="mailto:" href="mailto:852227286@qq.com">发邮件</a>
+                        <a class="btn btn-outline-primary btn-pill" data-config="github-url" data-config-attr="href" href="https://github.com/hellocccl">看 Github</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container px-4 px-lg-5">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-title" data-config="page-top-title">hellocccl</div>
+                    <p class="footer-text" data-config="copyright-text"></p>
+                </div>
+                <div class="footer-meta">
+                    <span><i class="bi bi-bar-chart-line"></i> 累计访问 <strong data-site-visits>0</strong></span>
+                    <a data-config="github-url" data-config-attr="href" href="https://github.com/hellocccl">
+                        <span data-config="github-label">Github</span>
+                    </a>
+                    <a data-config="license-url" data-config-attr="href" href="https://github.com/hellocccl/hellocccl.github.io/blob/main/LICENSE">
+                        <span data-config="license-label">License</span>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top" type="button" aria-label="回到顶部">
+        <i class="bi bi-arrow-up"></i>
+    </button>
 </body>
 
 </html>
