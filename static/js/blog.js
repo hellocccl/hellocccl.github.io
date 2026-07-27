@@ -1,7 +1,8 @@
 let blogArticles = [];
+const ALL_TAG = 'all';
 const blogState = {
     query: '',
-    tag: '全部'
+    tag: ALL_TAG
 };
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -14,21 +15,21 @@ window.addEventListener('DOMContentLoaded', async () => {
         ]);
 
         blogArticles = articles;
-        document.title = `${config.title || 'hellocccl'} | 技术文章`;
+        document.title = `${config.title || 'hellocccl'} | Posts`;
 
         initFilters(articles);
         renderBlogStats(articles);
         renderTagFilters(articles);
         renderArticles();
     } catch (error) {
-        console.error('加载文章列表失败:', error);
+        console.error('Failed to load post list:', error);
         const target = document.getElementById('articles-list');
         if (target) {
             target.innerHTML = `
                 <div class="empty-state">
                     <i class="bi bi-exclamation-circle"></i>
-                    <h3>文章列表加载失败</h3>
-                    <p>请检查 <code>contents/articles.json</code> 是否可用。</p>
+                    <h3>Failed to load posts</h3>
+                    <p>Check that <code>contents/articles.json</code> is available.</p>
                 </div>
             `;
         }
@@ -37,7 +38,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 function initFilters(articles) {
     const params = new URLSearchParams(window.location.search);
-    blogState.tag = params.get('tag') || '全部';
+    blogState.tag = params.get('tag') || ALL_TAG;
 
     const searchInput = document.getElementById('article-search');
     const clearButton = document.getElementById('clear-filters');
@@ -52,7 +53,7 @@ function initFilters(articles) {
     if (clearButton) {
         clearButton.addEventListener('click', () => {
             blogState.query = '';
-            blogState.tag = '全部';
+            blogState.tag = ALL_TAG;
             if (searchInput) {
                 searchInput.value = '';
             }
@@ -87,7 +88,7 @@ function renderTagFilters(articles) {
         return;
     }
 
-    const tags = [{ name: '全部', count: articles.length }, ...site.getAllTags(articles)];
+    const tags = [{ name: ALL_TAG, count: articles.length }, ...site.getAllTags(articles)];
 
     target.innerHTML = tags.map(tag => `
         <button class="filter-chip${blogState.tag === tag.name ? ' active' : ''}" type="button" data-tag="${site.escapeHtml(tag.name)}">
@@ -102,7 +103,7 @@ function renderTagFilters(articles) {
             renderTagFilters(articles);
             renderArticles();
 
-            const nextUrl = blogState.tag === '全部' ? 'blog.html' : site.blogUrl(blogState.tag);
+            const nextUrl = blogState.tag === ALL_TAG ? 'blog.html' : site.blogUrl(blogState.tag);
             history.replaceState(null, '', nextUrl);
         });
     });
@@ -110,7 +111,7 @@ function renderTagFilters(articles) {
 
 function getFilteredArticles() {
     return blogArticles.filter(article => {
-        const matchesTag = blogState.tag === '全部' || (article.tags || []).includes(blogState.tag);
+        const matchesTag = blogState.tag === ALL_TAG || (article.tags || []).includes(blogState.tag);
         const haystack = [
             article.title,
             article.description,
@@ -128,8 +129,8 @@ function renderArticles() {
 
     if (summary) {
         summary.textContent = filteredArticles.length === blogArticles.length
-            ? `共 ${blogArticles.length} 篇文章`
-            : `筛选后还有 ${filteredArticles.length} 篇文章`;
+            ? `${blogArticles.length} posts`
+            : `${filteredArticles.length} of ${blogArticles.length} posts`;
     }
 
     if (!target) {
@@ -140,8 +141,8 @@ function renderArticles() {
         target.innerHTML = `
             <div class="empty-state">
                 <i class="bi bi-search"></i>
-                <h3>没有找到匹配的文章</h3>
-                <p>试试换一个关键词，或者清空筛选条件。</p>
+                <h3>No matching posts</h3>
+                <p>Try a different keyword, or clear the filters.</p>
             </div>
         `;
         return;

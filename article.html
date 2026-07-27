@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="hellocccl 的技术文章详情页。" />
+    <meta name="description" content="Article by hellocccl." />
     <meta name="author" content="hellocccl" />
-    <title>文章详情 | hellocccl</title>
+    <title>Article | hellocccl</title>
 
     <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" rel="stylesheet" />
     <link href="static/css/styles.css" rel="stylesheet" />
     <link href="static/css/main.css" rel="stylesheet" />
 
@@ -22,6 +23,7 @@
     <script defer src="static/js/js-yaml.min.js"></script>
     <script defer src="static/js/site.js"></script>
     <script defer src="static/js/marked.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
     <script defer src="static/js/article.js"></script>
 
     <script>
@@ -44,17 +46,17 @@
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="index.html" data-config="page-top-title">hellocccl</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="切换导航">
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-list"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-                    <li class="nav-item"><a class="nav-link" href="index.html#home">关于我</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#interests">方向</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#awards">荣誉</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="blog.html">文章</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">about</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#interests">focus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#awards">awards</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">posts</a></li>
                     <li class="nav-item">
-                        <button class="theme-toggle-btn" type="button" data-theme-toggle aria-label="切换主题">
+                        <button class="theme-toggle-btn" type="button" data-theme-toggle aria-label="Toggle theme">
                             <i class="bi bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -68,20 +70,20 @@
             <div class="container px-4 px-lg-5">
                 <a class="back-link" href="blog.html">
                     <i class="bi bi-arrow-left"></i>
-                    <span>返回文章列表</span>
+                    <span>Back to posts</span>
                 </a>
 
                 <div class="article-hero-copy">
                     <span class="section-kicker">ARTICLE</span>
-                    <h1 id="article-heading">加载中...</h1>
-                    <p id="article-description">正在加载文章内容。</p>
+                    <h1 id="article-heading">Loading...</h1>
+                    <p id="article-description">Loading article content.</p>
                 </div>
 
                 <div class="article-meta" id="article-meta">
                     <span class="meta-pill"><i class="bi bi-calendar3"></i><strong id="article-date">-</strong></span>
-                    <span class="meta-pill"><i class="bi bi-file-earmark-text"></i><strong id="word-count">0</strong> 字</span>
-                    <span class="meta-pill"><i class="bi bi-clock"></i><strong id="read-time">0</strong> 分钟</span>
-                    <span class="meta-pill"><i class="bi bi-eye"></i><strong id="article-views">0</strong> 阅读</span>
+                    <span class="meta-pill"><i class="bi bi-file-earmark-text"></i><strong id="word-count">0</strong> words</span>
+                    <span class="meta-pill"><i class="bi bi-clock"></i><strong id="read-time">0</strong> min</span>
+                    <span class="meta-pill"><i class="bi bi-eye"></i><strong id="article-views">0</strong> views</span>
                 </div>
 
                 <div class="tag-list article-tag-list" id="article-tags"></div>
@@ -95,7 +97,7 @@
                         <div class="sidebar-card sticky-card">
                             <div class="section-heading compact">
                                 <span class="section-kicker">OUTLINE</span>
-                                <h2>目录</h2>
+                                <h2>Contents</h2>
                             </div>
                             <nav id="article-toc"></nav>
                         </div>
@@ -105,16 +107,16 @@
                         <article class="content-card prose-card article-prose" id="article-content">
                             <div class="empty-state">
                                 <i class="bi bi-hourglass-split"></i>
-                                <h3>正在加载文章</h3>
-                                <p>马上就好。</p>
+                                <h3>Loading article</h3>
+                                <p>Just a moment.</p>
                             </div>
                         </article>
 
                         <section class="related-section">
                             <div class="section-heading">
                                 <span class="section-kicker">MORE</span>
-                                <h2>相关文章</h2>
-                                <p>从相似主题里继续往下读。</p>
+                                <h2>Related posts</h2>
+                                <p>Keep reading around the same topics.</p>
                             </div>
                             <div class="article-grid compact-grid" id="related-articles"></div>
                         </section>
@@ -132,7 +134,7 @@
                     <p class="footer-text" data-config="copyright-text"></p>
                 </div>
                 <div class="footer-meta">
-                    <span><i class="bi bi-bar-chart-line"></i> 累计访问 <strong data-site-visits>0</strong></span>
+                    <span><i class="bi bi-bar-chart-line"></i> Visits <strong data-site-visits>0</strong></span>
                     <a data-config="github-url" data-config-attr="href" href="https://github.com/hellocccl">
                         <span data-config="github-label">Github</span>
                     </a>
@@ -144,7 +146,7 @@
         </div>
     </footer>
 
-    <button id="backToTop" class="back-to-top" type="button" aria-label="回到顶部">
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
         <i class="bi bi-arrow-up"></i>
     </button>
 </body>

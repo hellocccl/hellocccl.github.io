@@ -1,22 +1,22 @@
 title: hellocccl
 page-top-title: hellocccl
-top-section-bg-text: 算法 · 计算机基础 · 技术笔记
-hero-description: 把学习、竞赛和开发过程中的思考整理成长期可复用的知识资产，让博客成为我的第二大脑。
-hero-role: 浙江农林大学 · 计算机科学与技术本科生
-hero-education: 浙江农林大学 / 计算机科学与技术
+top-section-bg-text: AI compilers · algorithms · systems
+hero-description: I turn what I learn from building compilers, competing in algorithm contests, and shipping tools into notes I can reuse for years — this blog is my second brain.
+hero-role: CS undergraduate · Zhejiang A&F University
+hero-education: Zhejiang A&F University / Computer Science
 hero-location: Zhejiang, China
-hero-focus: 算法竞赛、计算机网络、开发工具
+hero-focus: AI compilers, MLIR, competitive programming
 email: 852227286@qq.com
 github-url: https://github.com/hellocccl
-github-label: Github
+github-label: GitHub
 license-url: https://github.com/hellocccl/hellocccl.github.io/blob/main/LICENSE
 license-label: License
-home-subtitle: 关于我
-interests-subtitle: 关注方向
-awards-subtitle: 比赛与荣誉
-blog-title: 技术文章
-blog-description: 记录题解、工具经验和计算机基础学习笔记，让内容更容易回看、检索和复用。
-latest-posts-subtitle: 最新文章
-contact-title: 一起交流技术
-contact-description: 如果你也在折腾算法、课程学习或开发效率工具，欢迎直接联系我。
+home-subtitle: About me
+interests-subtitle: What I focus on
+awards-subtitle: Awards & honors
+blog-title: Posts
+blog-description: Write-ups on AI compilers, algorithm solutions, and computer-science fundamentals — organized so they are easy to search and revisit.
+latest-posts-subtitle: Latest posts
+contact-title: Let's talk engineering
+contact-description: If you are also into compilers, algorithms, or developer tooling, feel free to reach out.
 copyright-text: © hellocccl 2023-2026. All Rights Reserved.

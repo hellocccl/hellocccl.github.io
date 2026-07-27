@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="hellocccl 的技术文章列表。" />
+    <meta name="description" content="Articles by hellocccl on AI compilers, algorithms, and systems." />
     <meta name="author" content="hellocccl" />
-    <title>hellocccl | 技术文章</title>
+    <title>hellocccl | Posts</title>
 
     <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="static/css/styles.css" rel="stylesheet" />
     <link href="static/css/main.css" rel="stylesheet" />
@@ -33,17 +33,17 @@
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="index.html" data-config="page-top-title">hellocccl</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="切换导航">
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-list"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-                    <li class="nav-item"><a class="nav-link" href="index.html#home">关于我</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#interests">方向</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#awards">荣誉</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="blog.html">文章</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">about</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#interests">focus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#awards">awards</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">posts</a></li>
                     <li class="nav-item">
-                        <button class="theme-toggle-btn" type="button" data-theme-toggle aria-label="切换主题">
+                        <button class="theme-toggle-btn" type="button" data-theme-toggle aria-label="Toggle theme">
                             <i class="bi bi-moon-stars-fill"></i>
                         </button>
                     </li>
@@ -58,22 +58,22 @@
                 <div class="page-hero-grid">
                     <div class="page-hero-copy">
                         <span class="section-kicker">BLOG</span>
-                        <h1 data-config="blog-title">技术文章</h1>
+                        <h1 data-config="blog-title">Posts</h1>
                         <p data-config="blog-description"></p>
                     </div>
 
                     <div class="mini-stat-grid">
                         <article class="mini-stat-card">
                             <span id="blog-total-count">0</span>
-                            <small>总文章数</small>
+                            <small>posts</small>
                         </article>
                         <article class="mini-stat-card">
                             <span id="blog-total-tags">0</span>
-                            <small>标签数</small>
+                            <small>tags</small>
                         </article>
                         <article class="mini-stat-card">
                             <span id="latest-post-date">-</span>
-                            <small>最近更新</small>
+                            <small>updated</small>
                         </article>
                     </div>
                 </div>
@@ -85,21 +85,21 @@
                 <div class="filter-panel">
                     <div class="search-shell">
                         <i class="bi bi-search"></i>
-                        <input type="text" id="article-search" class="search-input" placeholder="搜索标题、简介或标签..." />
+                        <input type="text" id="article-search" class="search-input" placeholder="Search titles, summaries, or tags..." />
                     </div>
-                    <button id="clear-filters" class="btn btn-outline-primary btn-pill" type="button">清空筛选</button>
+                    <button id="clear-filters" class="btn btn-outline-primary btn-pill" type="button">Clear filters</button>
                 </div>
 
                 <div class="tag-filter-wrap">
                     <div class="filter-chip-group" id="tag-filters"></div>
-                    <p class="articles-summary" id="articles-summary">共 0 篇文章</p>
+                    <p class="articles-summary" id="articles-summary">0 posts</p>
                 </div>
 
                 <div class="article-grid" id="articles-list">
                     <div class="empty-state">
                         <i class="bi bi-hourglass-split"></i>
-                        <h3>正在加载文章列表</h3>
-                        <p>马上就好。</p>
+                        <h3>Loading posts</h3>
+                        <p>Just a moment.</p>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                     <p class="footer-text" data-config="copyright-text"></p>
                 </div>
                 <div class="footer-meta">
-                    <span><i class="bi bi-bar-chart-line"></i> 累计访问 <strong data-site-visits>0</strong></span>
+                    <span><i class="bi bi-bar-chart-line"></i> Visits <strong data-site-visits>0</strong></span>
                     <a data-config="github-url" data-config-attr="href" href="https://github.com/hellocccl">
                         <span data-config="github-label">Github</span>
                     </a>
@@ -126,7 +126,7 @@
         </div>
     </footer>
 
-    <button id="backToTop" class="back-to-top" type="button" aria-label="回到顶部">
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
         <i class="bi bi-arrow-up"></i>
     </button>
 </body>

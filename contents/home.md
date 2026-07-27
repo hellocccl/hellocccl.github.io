@@ -1,14 +1,14 @@
-你好，我是 **hellocccl**，目前是浙江农林大学计算机科学与技术专业本科生。
+Hi, I'm **hellocccl**, a Computer Science undergraduate at Zhejiang A&F University.
 
-我习惯把博客当作自己的技术笔记与成长档案，持续记录算法竞赛、计算机基础、开发工具和学习方法上的思考。写下来不仅是为了分享，更是为了把零散知识沉淀成以后还能反复查阅的资料。
+I treat this blog as my engineering notebook and growth log — a place to keep working through AI compilers, algorithms, computer-science fundamentals, and the tools I use every day. Writing things down is not only about sharing; it is how I turn scattered knowledge into references I can come back to for years.
 
-- 方向：算法竞赛 / 计算机基础 / 工具效率
-- 状态：持续学习，持续输出
-- 邮箱：`852227286@qq.com`
-- Github：[hellocccl](https://github.com/hellocccl)
+- Focus: AI compilers / competitive programming / systems
+- Status: always learning, always shipping
+- Email: `852227286@qq.com`
+- GitHub: [hellocccl](https://github.com/hellocccl)
 
-### 教育经历
+### Education
 
-**浙江农林大学**  
-计算机科学与技术 · 本科  
+**Zhejiang A&F University**
+B.Sc. in Computer Science
 2023.09 - 2027.06

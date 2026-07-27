@@ -16,7 +16,7 @@ const themeManager = (() => {
 
     function updateButtons() {
         const isDark = getCurrentTheme() === 'dark';
-        const label = isDark ? '切换到浅色模式' : '切换到深色模式';
+        const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
 
         document.querySelectorAll('[data-theme-toggle]').forEach(button => {
             const icon = button.querySelector('i');

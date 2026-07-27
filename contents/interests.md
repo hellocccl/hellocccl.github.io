@@ -1,17 +1,21 @@
-### 目前重点关注
+### What I'm working on
 
-#### 算法与竞赛
+#### AI compilers
 
-喜欢用 C++ 解决问题，也在持续训练题解表达能力，希望把“会做题”逐渐变成“能讲清楚”。
+I'm digging into how ML frameworks lower models down to hardware — MLIR dialects, graph capture in `torch.compile`, operator fusion, and code generation. Turning a high-level model into fast machine code is the problem I find most fun right now.
 
-#### 计算机基础
+#### Algorithms & competitive programming
 
-会系统复习计算机网络等课程内容，把课堂知识整理成适合自己反复回看的学习笔记。
+I solve problems in C++ and keep training the habit of writing clear editorials, so "I can solve it" gradually becomes "I can explain it."
 
-#### 工具效率
+#### CS fundamentals
 
-关注 Vim、命令行和常用开发工具，希望把重复工作交给工具，把注意力留给真正需要思考的部分。
+I review core coursework like computer networks and operating systems, and reshape lectures into notes that are actually pleasant to reread.
 
-#### 生活之外
+#### Tooling & efficiency
 
-跑步、羽毛球、乒乓球和篮球会帮我把节奏重新调回来，轻音乐通常是写代码时最稳定的背景声。
+Vim, the command line, and everyday dev tools — I like handing repetitive work to tooling so I can spend attention on the parts that really need thinking.
+
+#### Away from the keyboard
+
+Running, badminton, table tennis, and basketball help me reset the pace, and light music is usually the most stable background noise while I code.

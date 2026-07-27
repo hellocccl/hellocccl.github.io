@@ -170,7 +170,7 @@ const site = (() => {
             return dateString;
         }
 
-        return new Intl.DateTimeFormat('zh-CN', {
+        return new Intl.DateTimeFormat('en-US', {
             year: 'numeric',
             month: 'short',
             day: 'numeric'
@@ -187,7 +187,7 @@ const site = (() => {
         });
 
         return [...tagMap.entries()]
-            .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'zh-CN'))
+            .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
             .map(([name, count]) => ({ name, count }));
     }
 
@@ -233,6 +233,16 @@ const site = (() => {
     async function renderMarkdownInto(element, markdown) {
         element.innerHTML = renderMarkdown(markdown);
 
+        if (typeof hljs !== 'undefined') {
+            element.querySelectorAll('pre code').forEach(block => {
+                try {
+                    hljs.highlightElement(block);
+                } catch (error) {
+                    console.error('Syntax highlight failed:', error);
+                }
+            });
+        }
+
         if (typeof MathJax !== 'undefined') {
             if (typeof MathJax.typesetPromise === 'function') {
                 try {
@@ -269,7 +279,7 @@ const site = (() => {
                 const anchor = document.createElement('a');
                 anchor.className = 'heading-anchor';
                 anchor.href = `#${heading.id}`;
-                anchor.setAttribute('aria-label', `跳转到 ${heading.textContent}`);
+                anchor.setAttribute('aria-label', `Jump to ${heading.textContent}`);
                 anchor.innerHTML = '<i class="bi bi-link-45deg"></i>';
                 heading.appendChild(anchor);
             }

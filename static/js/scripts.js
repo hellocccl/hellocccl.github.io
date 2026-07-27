@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             site.fetchText(`${site.CONTENT_DIR}/awards.md`)
         ]);
 
-        document.title = `${config.title || 'hellocccl'} | 个人技术博客`;
+        document.title = `${config.title || 'hellocccl'} | Engineering Blog`;
 
         await Promise.all([
             site.renderMarkdownInto(document.getElementById('home-md'), homeMarkdown),
@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         renderTopicCloud(articles);
         renderLatestSummary(articles);
     } catch (error) {
-        console.error('首页内容加载失败:', error);
+        console.error('Failed to load home content:', error);
     }
 });
 
@@ -50,8 +50,8 @@ function renderLatestPosts(articles) {
         target.innerHTML = `
             <div class="empty-state">
                 <i class="bi bi-journal-x"></i>
-                <h3>还没有公开文章</h3>
-                <p>等第一篇内容发布后，这里会自动出现。</p>
+                <h3>No posts yet</h3>
+                <p>The first published post will show up here automatically.</p>
             </div>
         `;
         return;
@@ -69,7 +69,7 @@ function renderTopicCloud(articles) {
 
     const tags = site.getAllTags(articles).slice(0, 10);
     if (!tags.length) {
-        target.innerHTML = '<p class="articles-summary">暂时还没有标签。</p>';
+        target.innerHTML = '<p class="articles-summary">No tags yet.</p>';
         return;
     }
 
@@ -88,7 +88,7 @@ function renderLatestSummary(articles) {
 
     if (!latest) {
         if (latestLink) {
-            latestLink.textContent = '等待第一篇文章发布';
+            latestLink.textContent = 'Waiting for the first post';
             latestLink.href = 'blog.html';
         }
         return;

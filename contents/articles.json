@@ -1,5 +1,26 @@
 [
   {
+    "id": "torch-compile-internals",
+    "title": "Inside torch.compile: Dynamo, AOTAutograd, and Inductor",
+    "date": "2026-07-26",
+    "tags": ["AI Compiler", "PyTorch", "torch.compile"],
+    "description": "How torch.compile turns ordinary Python into fast kernels — graph capture with Dynamo, functionalization with AOTAutograd, and Triton codegen with Inductor."
+  },
+  {
+    "id": "mlir-dialects-lowering",
+    "title": "MLIR in Practice: Dialects, Lowering, and Progressive Optimization",
+    "date": "2026-07-23",
+    "tags": ["AI Compiler", "MLIR", "LLVM"],
+    "description": "A tour of MLIR dialects and progressive lowering — from linalg on tensors down to LLVM IR, and why the ML compiler world standardized on it."
+  },
+  {
+    "id": "ai-compiler-intro",
+    "title": "What Is an AI Compiler, and Why Do We Need One?",
+    "date": "2026-07-20",
+    "tags": ["AI Compiler", "Deep Learning", "Systems"],
+    "description": "Why eager execution leaves performance on the table, and how an AI compiler recovers it through fusion, scheduling, and multi-level lowering."
+  },
+  {
     "id": "vim",
     "title": "Vim 编辑器使用指南",
     "date": "2024-01-15",

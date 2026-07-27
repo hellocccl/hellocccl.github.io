@@ -6,8 +6,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     if (!articleId) {
         renderArticleState({
-            title: '未找到文章',
-            description: '当前链接里没有文章编号，请返回文章列表重新选择。'
+            title: 'Article not found',
+            description: 'This link has no article id. Head back to the post list and pick one.'
         });
         return;
     }
@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             id: articleId,
             title: extractTitle(markdown) || articleId,
             date: '',
-            description: '这篇文章没有在 articles.json 中找到额外描述。',
+            description: 'No extra description was found for this article in articles.json.',
             tags: []
         };
 
@@ -32,10 +32,10 @@ window.addEventListener('DOMContentLoaded', async () => {
         await site.renderMarkdownInto(document.getElementById('article-content'), markdown);
         enhanceArticleContent(currentArticle, articles);
     } catch (error) {
-        console.error('加载文章失败:', error);
+        console.error('Failed to load article:', error);
         renderArticleState({
-            title: '文章加载失败',
-            description: `没有找到 "${articleId}" 对应的文章文件。`
+            title: 'Failed to load article',
+            description: `No article file was found for "${articleId}".`
         });
     }
 });
@@ -60,7 +60,7 @@ function renderArticleHeader(article, markdown) {
     }
 
     if (description) {
-        description.textContent = article.description || '记录学习过程中的思考与解题笔记。';
+        description.textContent = article.description || 'Notes and thoughts from what I learn along the way.';
     }
 
     if (date) {
@@ -68,7 +68,7 @@ function renderArticleHeader(article, markdown) {
     }
 
     if (words) {
-        words.textContent = stats.words.toLocaleString('zh-CN');
+        words.textContent = stats.words.toLocaleString('en-US');
     }
 
     if (minutes) {
@@ -104,7 +104,7 @@ function renderToc(content) {
     }
 
     if (!items.length) {
-        tocContainer.innerHTML = '<p class="toc-empty">这篇文章没有可生成目录的小节。</p>';
+        tocContainer.innerHTML = '<p class="toc-empty">No sections to build an outline from.</p>';
         return;
     }
 
@@ -166,7 +166,7 @@ function renderRelatedArticles(currentArticle, articles) {
         target.innerHTML = `
             <div class="empty-state compact">
                 <i class="bi bi-stars"></i>
-                <p>这篇文章暂时没有同主题推荐，去文章列表看看其他内容吧。</p>
+                <p>No same-topic posts yet — browse the full list for more.</p>
             </div>
         `;
         return;
@@ -206,13 +206,13 @@ function renderArticleState({ title, description }) {
                 <i class="bi bi-file-earmark-x"></i>
                 <h3>${site.escapeHtml(title)}</h3>
                 <p>${site.escapeHtml(description)}</p>
-                <a class="btn btn-outline-primary btn-pill" href="blog.html">返回文章列表</a>
+                <a class="btn btn-outline-primary btn-pill" href="blog.html">Back to posts</a>
             </div>
         `;
     }
 
     if (toc) {
-        toc.innerHTML = '<p class="toc-empty">目录暂不可用。</p>';
+        toc.innerHTML = '<p class="toc-empty">Outline unavailable.</p>';
     }
 
     if (related) {
@@ -230,7 +230,7 @@ function addCopyButtonsToCodeBlocks(container) {
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'copy-code-btn';
-        button.innerHTML = '<i class="bi bi-clipboard"></i><span>复制代码</span>';
+        button.innerHTML = '<i class="bi bi-clipboard"></i><span>Copy</span>';
 
         button.addEventListener('click', async () => {
             const text = codeBlock.textContent;
@@ -242,13 +242,13 @@ function addCopyButtonsToCodeBlocks(container) {
                     legacyCopyText(text);
                 }
                 button.classList.add('copied');
-                button.innerHTML = '<i class="bi bi-check2"></i><span>已复制</span>';
+                button.innerHTML = '<i class="bi bi-check2"></i><span>Copied</span>';
                 window.setTimeout(() => {
                     button.classList.remove('copied');
-                    button.innerHTML = '<i class="bi bi-clipboard"></i><span>复制代码</span>';
+                    button.innerHTML = '<i class="bi bi-clipboard"></i><span>Copy</span>';
                 }, 1800);
             } catch (error) {
-                console.error('复制失败:', error);
+                console.error('Copy failed:', error);
             }
         });
 
